@@ -2,8 +2,8 @@ vCard - Personal Portfolio
 
 # sidebar
 
-alt = Richard hanrick
-Richard hanrick
+alt = NISHANI HARSHITH
+NISHANI HARSHITH
 Web developer
 
 Show Contacts

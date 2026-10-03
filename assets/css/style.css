@@ -1153,6 +1153,24 @@ main {
 
 .form-title { margin-bottom: 20px; }
 
+.contact-message-form { margin-top: 30px; }
+
+.contact-field {
+  display: grid;
+  gap: 8px;
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+}
+
+.contact-subject-field { margin-bottom: 25px; }
+
+.form-status {
+  min-height: 21px;
+  margin-top: 14px;
+  color: var(--light-gray-70);
+  font-size: var(--fs-6);
+}
+
 .input-wrapper {
   display: grid;
   grid-template-columns: 1fr;

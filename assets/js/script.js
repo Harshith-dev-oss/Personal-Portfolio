@@ -122,6 +122,7 @@ for (let i = 0; i < filterBtn.length; i++) {
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
+const formStatus = document.querySelector("[data-form-status]");
 
 // add event to all form input field
 for (let i = 0; i < formInputs.length; i++) {
@@ -129,11 +130,42 @@ for (let i = 0; i < formInputs.length; i++) {
 
     // check form validation
     if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
+      formBtn.disabled = false;
     } else {
-      formBtn.setAttribute("disabled", "");
+      formBtn.disabled = true;
     }
 
+  });
+}
+
+if (form && formBtn && formStatus) {
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    formBtn.disabled = true;
+    formStatus.textContent = "Sending...";
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      const result = await response.json();
+
+      if (!response.ok || result.success === false || result.success === "false") {
+        throw new Error("Message submission failed");
+      }
+
+      form.reset();
+      formStatus.textContent = "Thanks! Your message has been submitted.";
+    } catch (error) {
+      formStatus.textContent = "Your message could not be sent. Please email me directly.";
+    } finally {
+      formBtn.disabled = !form.checkValidity();
+    }
   });
 }
 

@@ -947,6 +947,40 @@ Passionate about learning emerging technologies, developing practical projects, 
             </ul>
           </div>
 
+          <form class="contact-message-form" data-form action="https://formsubmit.co/ajax/harshithnishani63@gmail.com" method="POST">
+            <h3 class="h3 form-title">Send a Message</h3>
+            <input type="hidden" name="_subject" value="New message from your portfolio">
+
+            <div class="input-wrapper">
+              <label class="contact-field">
+                Your Name
+                <input type="text" name="name" class="form-input" placeholder="Your name" autocomplete="name" maxlength="100" required data-form-input>
+              </label>
+
+              <label class="contact-field">
+                Your Email
+                <input type="email" name="email" class="form-input" placeholder="you@example.com" autocomplete="email" maxlength="254" required data-form-input>
+              </label>
+            </div>
+
+            <label class="contact-field contact-subject-field">
+              Subject
+              <input type="text" name="subject" class="form-input" placeholder="What would you like to discuss?" maxlength="150" required data-form-input>
+            </label>
+
+            <label class="contact-field">
+              Message
+              <textarea name="message" class="form-input" placeholder="Write your message..." maxlength="5000" required data-form-input></textarea>
+            </label>
+
+            <button class="form-btn" type="submit" data-form-btn disabled>
+              <span>Send Message</span>
+              <ion-icon name="paper-plane-outline"></ion-icon>
+            </button>
+
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          </form>
+
         </section>
 
       </article>
